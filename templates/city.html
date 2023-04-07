@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>City</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" rel="stylesheet">
+    <style>
+      .gallery-item {
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+        width: 200px;
+        text-align: center;
+      }
+      .gallery-item img {
+        max-width: 100%;
+        height: auto;
+      }
+      .caption {
+        margin-top: 5px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+      .account {
+        font-size: 12px;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1> {{name}} </h1>
+        <h2> {{ citydata }}</h2>
+        <div class="gallery">
+          {% for post in pictures %}
+          <div class="gallery-item">
+            <figure class="image is-4by3">
+              <img src="{{post['link']}}" alt="image 1">
+            </figure>
+            <div class="caption">{{post["caption"]}}</div>
+            <div class="account">{{post["account"]}}</div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
